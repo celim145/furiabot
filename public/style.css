@@ -1,0 +1,217 @@
+body {
+    display: flex;
+    flex-direction: column;
+    /* Adicionado */
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 0;
+    /* Reduzir padding lateral */
+    overflow: hidden;
+    /* Elimina barras de rolagem */
+    padding: 0 !important;
+    /* Remove padding extra */
+    overflow-y: auto
+}
+
+#chat {
+    z-index: 1; /* Camada intermediária */
+    margin-top: 60px; /* Espaço para rolagem */
+    max-height: calc(100vh - 200px); /* Altura ajustada */
+}
+
+.message {
+    padding: 12px 20px;
+    margin: 8px 0;
+    /* Espaçamento vertical reduzido */
+    font-size: 16px;
+    word-break: break-word;
+    backdrop-filter: blur(5px);
+    width: fit-content;
+}
+
+.user {
+    background: rgba(201, 201, 201, 0.3);
+    color: white;
+    margin-left: auto;
+    /* Empurra totalmente para direita */
+    margin-right: 0;
+    /* Remove margem direita */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: right;
+    border-radius: 20px 5px 20px 20px;
+    /* Borda mais arredondada à direita */
+    max-width: 80%;
+    /* Largura máxima menor */
+}
+
+.bot {
+    background: rgba(59, 59, 59, 0.3);
+    color: white;
+    margin-right: auto;
+    /* Empurra totalmente para esquerda */
+    margin-left: 0;
+    /* Remove margem esquerda */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+    border-radius: 5px 20px 20px 20px;
+    /* Borda mais arredondada à esquerda */
+    max-width: 80%;
+}
+
+.message-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 3;
+}
+
+.bor-warning {
+    background: #fff3e0;
+    border-left: 4px solid #ffa726;
+    margin-right: 20%;
+}
+
+h1 {
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Alterado para negativo */
+    /* Restante mantido */
+
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    z-index: -2;
+    border-radius: 20px;
+    opacity: 0.3;
+    /* Fundo mais suave */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/Furia.png');
+    background-size: contain;
+    /* Mantém toda a imagem visível */
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Para garantir que o chat fique sobre o fundo */
+
+#input {
+    flex-grow: 1;
+    /* Expande para ocupar mais espaço */
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    resize: none;
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    background: transparent;
+    color: white;
+    outline: none !important;
+    /* Remove contorno padrão */
+}
+
+#input::placeholder {
+    color: #aaa;
+    /* Placeholder mais claro */
+
+}
+
+#send {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.message-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    padding: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: fixed;
+    /* Fixado no final da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.error {
+    background: #ffebee;
+    border-left: 4px solid #ef5350;
+}
+
+.loader {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+}
+
+.message a {
+    color: #ffd700 !important;
+    /* Amarelo FURIA */
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.message a:hover {
+    color: #ffa500 !important;
+}
+
+/* Adicione estas regras no seu style.css */
+.message strong {
+    color: #ffd700;
+    /* Amarelo FURIA */
+    font-weight: normal;
+}
+
+.message ul {
+    list-style: none;
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.message li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.message li::before {
+    content: "•";
+    color: #ffd700;
+    position: absolute;
+    left: -15px;
+}
